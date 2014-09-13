@@ -1,0 +1,12 @@
+{% extends "SesameSiteBundle::base.html.twig" %}
+{% block title %}focus sur les ... par Sésame Cover{% endblock %}
+{% block description %}{% endblock %}
+
+{% block body %}
+<section>
+    <header><h1>s</h1></header>
+    {% for page in pages %}
+        {{ render(controller('SesameSiteBundle:Page:list', { 'max': 3 })) }}
+    {% endfor %}
+</section>
+{% endblock %}

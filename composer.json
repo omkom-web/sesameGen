@@ -11,13 +11,27 @@
         "symfony/symfony": "2.5.*",
         "doctrine/orm": "~2.2,>=2.2.3",
         "doctrine/doctrine-bundle": "~1.2",
+        "doctrine/doctrine-cache-bundle": "~1.0",
         "twig/extensions": "~1.0",
         "symfony/assetic-bundle": "~2.3",
         "symfony/swiftmailer-bundle": "~2.3",
         "symfony/monolog-bundle": "~2.4",
         "sensio/distribution-bundle": "~3.0",
         "sensio/framework-extra-bundle": "~3.0",
-        "incenteev/composer-parameter-handler": "~2.0"
+        "incenteev/composer-parameter-handler": "~2.0",
+        "sensio/generator-bundle": "~2.3",
+        
+        "knplabs/knp-last-tweets-bundle": "*",
+        "stof/doctrine-extensions-bundle": "dev-master",
+        "gedmo/doctrine-extensions":      "dev-master",
+        
+        "liip/imagine-bundle": "dev-master",
+        
+        "jms/security-extra-bundle": "~1.5",
+        "jms/di-extra-bundle": "~1.4",
+        "jms/serializer-bundle": "~0.11"
+        
+        
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

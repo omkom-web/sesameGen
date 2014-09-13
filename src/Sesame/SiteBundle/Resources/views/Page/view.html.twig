@@ -1,0 +1,24 @@
+{% extends "SesameSiteBundle::base.html.twig" %}
+{% block title %}{{ title }}{% endblock %}
+{% block description %}{{ description }}{% endblock %}
+
+{% block body %}
+<article id="{{ id }}">
+<h1><a href="#{id}">{{ title }}</a></h1>
+<div class="row">
+    <div class="large-6 columns">
+        {{ excerpt }}
+    </div>
+    <div class="large-6 columns">
+        <figure>
+            <img src="../img/article-1.png" width="" height="" alt="">
+            <caption><u>Protection contre les intempéries</u></caption>
+        </figure>
+    </div>
+</div>	
+    <br>
+    <p>Avec votre abri de piscine vous profiterez des premiers rayons de soleil pour vous baigner malgré les vents frais et les pluies intermittentes. En effet, dans votre piscine protégée, l'air ambiant enfermé à l'intérieur de l'abri sera plus chaud et vous ne subirez les caprices de la météo.</p>
+    <br>
+    <h6>Ecrit par <a href="https://plus.google.com/114255073898879709025?rel=author">Christophe Provost</a></h6>
+</article>
+{% endblock %}

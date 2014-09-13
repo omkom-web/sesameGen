@@ -1,0 +1,16 @@
+<div class="large-12 columns">
+<div class="smile">
+    <article onclick="location.href = '{{ url('sesame_site_page_show', {'slug': page.slug, 'id':page.id, 'utm_medium' => 'article' }) }}';">
+        <header>
+            <h1><a href="{{ url('sesame_site_page_show', {'slug': page.slug, 'id':page.id }) }}">Augmentation de la durée de baignade</a></h1>
+            <i>lorem ipsum</i>
+        </header>
+        <div class="large-4 columns">
+            <img src="img/article-1.png" alt="abri stop intempéries" onclick="location.href = '{{ url('sesame_site_page_show', {'slug': page.slug, 'id':page.id, 'utm_medium' => 'image' }) }}';"/>
+        </div>
+        <p class="subheader">
+            {{ page.description }}
+            <br/><br/><a href="{{ url('sesame_site_page_show', {'slug': page.slug, 'id':page.id }) }}"><img src="img/link.gif" border="0" alt="Augmentation de la durée de baignade"></a></p>
+    </article>
+</div>
+</div>

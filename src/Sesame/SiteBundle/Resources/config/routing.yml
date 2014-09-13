@@ -1,0 +1,20 @@
+sesame_site_homepage:
+    path:     /
+    defaults: { _controller: SesameSiteBundle:Hp:index }
+
+sesame_site_page_index:
+    path:     /pages/
+    defaults: { _controller: SesameSiteBundle:Page:list }
+        
+sesame_site_sitemap:
+    path:     /plan-de-site.{_format}
+    defaults: { _controller: SesameSiteBundle:Page:list, _format: html }
+        # _format:  html|rss|xml
+    
+sesame_site_page_show:
+    path:     /pages/{slug}-{id}
+    defaults: { _controller: SesameSiteBundle:Page:view }
+    requirements:
+        slug:   \w+
+        id:     \d+
+    
