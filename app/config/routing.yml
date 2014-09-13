@@ -1,0 +1,4 @@
+sesame_site:
+    resource: "@SesameSiteBundle/Resources/config/routing.yml"
+    prefix:   /
+
