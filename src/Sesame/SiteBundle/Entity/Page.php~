@@ -2,12 +2,16 @@
 
 namespace Sesame\SiteBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Page
  *
- * @ORM\Table()
+ * @Gedmo\Tree(type="nested")
+ * @Gedmo\TranslationEntity(class="Gedmo\DemoBundle\Entity\CategoryTranslation")
  * @ORM\Entity(repositoryClass="Sesame\SiteBundle\Entity\PageRepository")
  */
 class Page
@@ -22,32 +26,70 @@ class Page
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="slug", type="string", length=255)
-     */
+    * @Gedmo\Translatable
+    * @Gedmo\Slug(fields={"title"})
+    * @ORM\Column(length=64, unique=true)
+    */
     private $slug;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="title", type="string", length=255)
-     */
+    * @Assert\NotBlank(message="Titre obligatoire")
+    * @Gedmo\Translatable
+    * @ORM\Column(length=64)
+    */
     private $title;
-
+    
+     /**
+    * @Gedmo\TreeLeft
+    * @ORM\Column(type="integer")
+    */
+    private $lft;
     /**
-     * @var string
-     *
-     * @ORM\Column(name="excerpt", type="string", length=255)
-     */
+    * @Gedmo\TreeRight
+    * @ORM\Column(type="integer")
+    */
+    private $rgt;
+    /**
+    * @Gedmo\TreeParent
+    * @ORM\ManyToOne(targetEntity="Page", inversedBy="children")
+    * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", onDelete="SET NULL")
+    */
+    private $parent;
+    /**
+    * @Gedmo\TreeRoot
+    * @ORM\Column(type="integer", nullable=true)
+    */
+    private $root;
+    /**
+    * @Gedmo\TreeLevel
+    * @ORM\Column(name="lvl", type="integer")
+    */
+    private $level;
+    /**
+    * @ORM\OneToMany(targetEntity="Category", mappedBy="parent")
+    */
+    private $children;
+    
+    /**
+    * @ORM\Column(type="text")
+    * @Assert\NotBlank(message="Accroche obligatoire")
+    */
     private $excerpt;
 
     /**
+    * @Gedmo\Translatable
+    * @ORM\Column(type="text")
+    * @Assert\NotBlank(message="Titre obligatoire")
+    */  
+    private $description;
+    
+    /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\Column(name="body", type="text")
+     * @Assert\NotBlank(message="Contenu obligatoire")
      */
-    private $description;
+    private $body;
 
     /**
      * @var \stdClass
@@ -56,7 +98,22 @@ class Page
      */
     private $image;
 
+    /**
+    * @Gedmo\Timestampable(on="create")
+    * @ORM\Column(type="datetime")
+    */
+    private $created;
+    /**
+    * @Gedmo\Timestampable(on="update")
+    * @ORM\Column(type="datetime")
+    */
+    private $updated;
 
+    public function __construct()
+    {
+        $this->children = new ArrayCollection();
+    }
+    
     /**
      * Get id
      *
@@ -180,5 +237,28 @@ class Page
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * Set body
+     *
+     * @param string $body
+     * @return Page
+     */
+    public function setBody($body)
+    {
+        $this->body = $body;
+
+        return $this;
+    }
+
+    /**
+     * Get body
+     *
+     * @return string 
+     */
+    public function getBody()
+    {
+        return $this->body;
     }
 }

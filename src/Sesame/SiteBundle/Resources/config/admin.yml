@@ -1,0 +1,30 @@
+sonata_admin:
+    title:      Sesame Core
+    title_logo: bundles/sesamesite/img/logo_sesame-small.png
+    templates:
+        dashboard: SonataAdminBundle:Core:dashboard.html.twig
+    dashboard:
+        groups:
+            sesame.admin.group.content:
+                label: sesame.admin.group.content
+                label_catalogue: SesameSiteBundle
+                items:
+                    - sonata.admin.page
+            # sesame.admin.group.blog:
+                # items: ~
+                # item_adds:
+                    # - sonata.admin.page
+                # roles: [ ROLE_ONE, ROLE_TWO ]
+            # sesame.admin.group.misc: ~
+    
+services:
+    sonata.admin.page:
+        class: Sesame\SiteBundle\Admin\PageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Contenu", label: "Pages" }
+        arguments:
+            - ~
+            - Sesame\SiteBundle\Entity\Page
+            - ~
+        calls:
+            - [ setTranslationDomain, [SesameSiteBundle]]

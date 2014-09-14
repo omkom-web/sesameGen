@@ -1,15 +1,13 @@
-# twig:
-    # debug: %kernel.debug%
-    # strict_variables: %kernel.debug%
-    # base_template_class: Sonata\CacheBundle\Twig\TwigTemplate14
-    # form:
-        # resources:
-            # - 'SonataFormatterBundle:Form:formatter.html.twig'
-            # - 'SonataMediaBundle:Form:media_widgets.html.twig'
-    # exception_controller: 'FOS\RestBundle\Controller\ExceptionController::showAction'
+imports:
+    - { resource: admin.yml }
+    # - { resource: security.yml }
     
+framework:
+    translator: ~  
+
+  
 doctrine:
-    dbal:
+    dbal:  
         driver:   "%database_driver%"
         host:     "%database_host%"
         port:     "%database_port%"
@@ -23,7 +21,7 @@ doctrine:
         mapping_types:
              enum: string
         types:
-            # json: Sonata\Doctrine\Types\JsonType
+            json: Sonata\Doctrine\Types\JsonType
             # currency: Sonata\Component\Currency\CurrencyDoctrineType
 
     orm:
@@ -34,3 +32,82 @@ doctrine:
             default:
                 auto_mapping: true
                 mappings: ~
+                
+twig:
+    debug: %kernel.debug%
+    strict_variables: %kernel.debug%
+    # base_template_class: Sonata\CacheBundle\Twig\TwigTemplate14
+    form:
+        resources:
+            - 'SonataFormatterBundle:Form:formatter.html.twig'
+            # - 'SonataMediaBundle:Form:media_widgets.html.twig'
+    # exception_controller: 'FOS\RestBundle\Controller\ExceptionController::showAction'
+    
+sonata_formatter:
+    formatters:
+        markdown:
+            service: sonata.formatter.text.markdown
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+        #        - sonata.media.formatter.twig #keep this commented unless you are using media bundle.
+
+
+        text:
+            service: sonata.formatter.text.text
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+        #        - sonata.media.formatter.twig
+
+
+        rawhtml:
+            service: sonata.formatter.text.raw
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+        #        - sonata.media.formatter.twig
+
+
+        richhtml:
+            service: sonata.formatter.text.raw
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+        #        - sonata.media.formatter.twig
+
+
+        twig:
+            service: sonata.formatter.text.twigengine
+            extensions: [] # Twig formatter cannot have extensions
+            
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # Enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+        sonata.user.block.menu:    # used to display the menu in profile pages
+        sonata.user.block.account: # used to display menu option (login option)
+        sonata.block.service.text: # used to if you plan to use Sonata user routes
+
+fos_user:
+    db_driver:      orm # can be orm or odm
+    firewall_name:  main
+    user_class:     Sonata\UserBundle\Entity\BaseUser
+
+    group:
+        group_class:   Sonata\UserBundle\Entity\BaseGroup
+        group_manager: sonata.user.orm.group_manager 
+    service:
+        user_manager: sonata.user.orm.user_manager 
+
+sonata_user:
+    security_acl: true
+    manager_type: orm # can be orm or mongodb
+
+# app/config/security.yml
+security:
+    # [...]
+    acl:
+        connection: default
