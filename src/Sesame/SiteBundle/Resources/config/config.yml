@@ -53,7 +53,34 @@ twig:
             - 'SonataFormatterBundle:Form:formatter.html.twig'
             # - 'SonataMediaBundle:Form:media_widgets.html.twig'
     # exception_controller: 'FOS\RestBundle\Controller\ExceptionController::showAction'
-    
+
+sonata_media:
+    providers:
+        image:
+            resizer: sonata.media.resizer.square
+    default_context: default
+    db_driver: doctrine_orm # or doctrine_mongodb, doctrine_phpcr
+    contexts:
+        default:  # the default context is mandatory
+            providers:
+                - sonata.media.provider.dailymotion
+                - sonata.media.provider.youtube
+                - sonata.media.provider.image
+                - sonata.media.provider.file
+
+            formats:
+                small: { width: 180 , quality: 70}
+                big:   { width: 500 , quality: 70}
+
+    cdn:
+        server:
+            path: /uploads/media # http://media.sonata-project.org/
+
+    filesystem:
+        local:
+            directory:  %kernel.root_dir%/../web/uploads/media
+            create:     true
+            
 sonata_formatter:
     formatters:
         markdown:

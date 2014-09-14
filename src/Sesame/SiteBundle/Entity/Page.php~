@@ -23,7 +23,14 @@ class Page
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
+    
+    /**
+     * @var \Boolean
+     *
+     * @ORM\Column(type="boolean")
+     */
+    private $active;
+    
     /**
     * @Gedmo\Slug(fields={"title"}, updatable=true)
     * @ORM\Column(length=64, unique=true)
@@ -101,18 +108,32 @@ class Page
 
     /**
     * @Gedmo\Timestampable(on="create")
-    * @ORM\Column(type="datetime")
+    * @ORM\Column(type="date")
     */
     private $created;
+    
     /**
     * @Gedmo\Timestampable(on="update")
-    * @ORM\Column(type="datetime")
+    * @ORM\Column(type="date")
     */
     private $updated;
+    
+    /**
+     * 
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Gallery", cascade={"persist"})
+     */
+    private $gallery;
+    
+    /**
+     * 
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     */
+    private $media;
 
     public function __construct()
     {
         $this->children = new ArrayCollection();
+        $this->active = false;
     }
  
 

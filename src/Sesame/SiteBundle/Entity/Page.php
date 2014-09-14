@@ -23,9 +23,16 @@ class Page
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
+    
     /**
-    * @Gedmo\Slug(fields={"title", "id"}, updatable=true)
+     * @var \Boolean
+     *
+     * @ORM\Column(type="boolean")
+     */
+    private $active;
+    
+    /**
+    * @Gedmo\Slug(fields={"title"}, updatable=true)
     * @ORM\Column(length=64, unique=true)
     */
     private $slug;
@@ -101,18 +108,32 @@ class Page
 
     /**
     * @Gedmo\Timestampable(on="create")
-    * @ORM\Column(type="datetime")
+    * @ORM\Column(type="date")
     */
     private $created;
+    
     /**
     * @Gedmo\Timestampable(on="update")
-    * @ORM\Column(type="datetime")
+    * @ORM\Column(type="date")
     */
     private $updated;
+    
+    /**
+     * 
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Gallery", cascade={"persist"})
+     */
+    private $gallery;
+    
+    /**
+     * 
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     */
+    private $media;
 
     public function __construct()
     {
         $this->children = new ArrayCollection();
+        $this->active = false;
     }
  
 
@@ -456,5 +477,74 @@ class Page
     public function getChildren()
     {
         return $this->children;
+    }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     * @return Page
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+
+        return $this;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean 
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * Set gallery
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\Gallery $gallery
+     * @return Page
+     */
+    public function setGallery(\Application\Sonata\MediaBundle\Entity\Gallery $gallery = null)
+    {
+        $this->gallery = $gallery;
+
+        return $this;
+    }
+
+    /**
+     * Get gallery
+     *
+     * @return \Application\Sonata\MediaBundle\Entity\Gallery 
+     */
+    public function getGallery()
+    {
+        return $this->gallery;
+    }
+
+    /**
+     * Set media
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\Media $media
+     * @return Page
+     */
+    public function setMedia(\Application\Sonata\MediaBundle\Entity\Media $media = null)
+    {
+        $this->media = $media;
+
+        return $this;
+    }
+
+    /**
+     * Get media
+     *
+     * @return \Application\Sonata\MediaBundle\Entity\Media 
+     */
+    public function getMedia()
+    {
+        return $this->media;
     }
 }

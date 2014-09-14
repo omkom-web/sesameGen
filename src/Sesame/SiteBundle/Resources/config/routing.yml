@@ -9,14 +9,26 @@ sesame_site_page_index:
 sesame_site_sitemap:
     path:     /plan-de-site.{_format}
     defaults: { _controller: SesameSiteBundle:Page:list, _format: html }
-        # _format:  html|rss|xml
+        # _format:    html|rss|xml
     
 sesame_site_page_show:
-    path:     /pages/{slug}.html#{id}
+    path:     /pages/{slug}.{id}.html
     defaults: { _controller: SesameSiteBundle:Page:view }
     requirements:
         # slug:   \w+
         id:     \d+
+        
+sesame_site_robots:
+    path:     /robots.txt
+    defaults: { _controller: SesameSiteBundle:Widget:robots}
+    
+gallery:
+    resource: '@SonataMediaBundle/Resources/config/routing/gallery.xml'
+    prefix: /photos/gallery
+
+media:
+    resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
+    prefix: /photos/
         
 sonata_user:
     resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'

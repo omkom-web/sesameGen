@@ -1,3 +1,4 @@
+{% if page.active %}
 <div class="large-12 columns">
 <div class="smile">
     <article onclick="location.href = '{{ url('sesame_site_page_show', {'slug': page.slug, 'id': page.id, 'utm_medium': 'article' }) }}';">
@@ -14,3 +15,4 @@
     </article>
 </div>
 </div>
+{% endif %}

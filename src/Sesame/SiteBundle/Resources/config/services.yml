@@ -17,6 +17,17 @@ services:
         calls:
             - [ setTranslationDomain, [SesameSiteBundle]]
             
+    sonata.admin.site:
+        class: Sesame\SiteBundle\Admin\SiteAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Contenu", label: "Site" }
+        arguments:
+            - ~
+            - Sesame\SiteBundle\Entity\Site
+            - ~
+        calls:
+            - [ setTranslationDomain, [SesameSiteBundle]]
+            
     gedmo.listener.tree:
         class: Gedmo\Tree\TreeListener
         tags:

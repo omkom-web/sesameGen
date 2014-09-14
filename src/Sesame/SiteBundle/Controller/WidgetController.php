@@ -28,5 +28,11 @@ class WidgetController extends Controller
         
         return $this->render('SesameSiteBundle:Widget:bloc_info.html.twig', $aInfos);
     }
+    
+    public function robotsAction($aInfos = array('type' => 'brand'))
+    {
+        
+        return $this->render('SesameSiteBundle:Widget:robots.txt.twig', $aInfos);
+    }
 
 }
