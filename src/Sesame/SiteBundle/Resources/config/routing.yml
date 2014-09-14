@@ -12,10 +12,10 @@ sesame_site_sitemap:
         # _format:  html|rss|xml
     
 sesame_site_page_show:
-    path:     /pages/{slug}-{id}
+    path:     /pages/{slug}.html#{id}
     defaults: { _controller: SesameSiteBundle:Page:view }
     requirements:
-        slug:   \w+
+        # slug:   \w+
         id:     \d+
         
 sonata_user:

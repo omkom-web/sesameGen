@@ -17,14 +17,3 @@ sonata_admin:
                 # roles: [ ROLE_ONE, ROLE_TWO ]
             # sesame.admin.group.misc: ~
     
-services:
-    sonata.admin.page:
-        class: Sesame\SiteBundle\Admin\PageAdmin
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: "Contenu", label: "Pages" }
-        arguments:
-            - ~
-            - Sesame\SiteBundle\Entity\Page
-            - ~
-        calls:
-            - [ setTranslationDomain, [SesameSiteBundle]]

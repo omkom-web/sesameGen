@@ -1,6 +1,7 @@
 imports:
     - { resource: admin.yml }
     # - { resource: security.yml }
+    - { resource: services.yml }
     
 framework:
     translator: ~  
@@ -32,7 +33,17 @@ doctrine:
             default:
                 auto_mapping: true
                 mappings: ~
-                
+
+stof_doctrine_extensions:
+    default_locale: fr_FR
+    orm:
+        default:
+            tree: true
+            sluggable: true
+            timestampable: true
+        # other:
+            # timestampable: true
+            
 twig:
     debug: %kernel.debug%
     strict_variables: %kernel.debug%

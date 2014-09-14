@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Page
- *
+ * @ORM\Table(name="pages")
  * @Gedmo\Tree(type="nested")
  * @ORM\Entity(repositoryClass="Sesame\SiteBundle\Entity\PageRepository")
  */
@@ -25,7 +25,7 @@ class Page
     private $id;
 
     /**
-    * @Gedmo\Slug(fields={"title"})
+    * @Gedmo\Slug(fields={"title"}, updatable=true)
     * @ORM\Column(length=64, unique=true)
     */
     private $slug;
@@ -41,27 +41,32 @@ class Page
     * @ORM\Column(type="integer")
     */
     private $lft;
+    
     /**
     * @Gedmo\TreeRight
     * @ORM\Column(type="integer")
     */
     private $rgt;
+    
     /**
     * @Gedmo\TreeParent
     * @ORM\ManyToOne(targetEntity="Page", inversedBy="children")
     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", onDelete="SET NULL")
     */
     private $parent;
+    
     /**
     * @Gedmo\TreeRoot
     * @ORM\Column(type="integer", nullable=true)
     */
     private $root;
+    
     /**
     * @Gedmo\TreeLevel
     * @ORM\Column(name="lvl", type="integer")
     */
     private $level;
+    
     /**
     * @ORM\OneToMany(targetEntity="Page", mappedBy="parent")
     */
@@ -90,7 +95,7 @@ class Page
     /**
      * @var \stdClass
      *
-     * @ORM\Column(name="image", type="object")
+     * @ORM\Column(name="image", type="object", nullable=true)
      */
     private $image;
 
@@ -109,7 +114,8 @@ class Page
     {
         $this->children = new ArrayCollection();
     }
-    
+ 
+
     /**
      * Get id
      *
@@ -167,6 +173,98 @@ class Page
     }
 
     /**
+     * Set lft
+     *
+     * @param integer $lft
+     * @return Page
+     */
+    public function setLft($lft)
+    {
+        $this->lft = $lft;
+
+        return $this;
+    }
+
+    /**
+     * Get lft
+     *
+     * @return integer 
+     */
+    public function getLft()
+    {
+        return $this->lft;
+    }
+
+    /**
+     * Set rgt
+     *
+     * @param integer $rgt
+     * @return Page
+     */
+    public function setRgt($rgt)
+    {
+        $this->rgt = $rgt;
+
+        return $this;
+    }
+
+    /**
+     * Get rgt
+     *
+     * @return integer 
+     */
+    public function getRgt()
+    {
+        return $this->rgt;
+    }
+
+    /**
+     * Set root
+     *
+     * @param integer $root
+     * @return Page
+     */
+    public function setRoot($root)
+    {
+        $this->root = $root;
+
+        return $this;
+    }
+
+    /**
+     * Get root
+     *
+     * @return integer 
+     */
+    public function getRoot()
+    {
+        return $this->root;
+    }
+
+    /**
+     * Set level
+     *
+     * @param integer $level
+     * @return Page
+     */
+    public function setLevel($level)
+    {
+        $this->level = $level;
+
+        return $this;
+    }
+
+    /**
+     * Get level
+     *
+     * @return integer 
+     */
+    public function getLevel()
+    {
+        return $this->level;
+    }
+
+    /**
      * Set excerpt
      *
      * @param string $excerpt
@@ -213,6 +311,29 @@ class Page
     }
 
     /**
+     * Set body
+     *
+     * @param string $body
+     * @return Page
+     */
+    public function setBody($body)
+    {
+        $this->body = $body;
+
+        return $this;
+    }
+
+    /**
+     * Get body
+     *
+     * @return string 
+     */
+    public function getBody()
+    {
+        return $this->body;
+    }
+
+    /**
      * Set image
      *
      * @param \stdClass $image
@@ -236,25 +357,104 @@ class Page
     }
 
     /**
-     * Set body
+     * Set created
      *
-     * @param string $body
+     * @param \DateTime $created
      * @return Page
      */
-    public function setBody($body)
+    public function setCreated($created)
     {
-        $this->body = $body;
+        $this->created = $created;
 
         return $this;
     }
 
     /**
-     * Get body
+     * Get created
      *
-     * @return string 
+     * @return \DateTime 
      */
-    public function getBody()
+    public function getCreated()
     {
-        return $this->body;
+        return $this->created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     * @return Page
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime 
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Set parent
+     *
+     * @param \Sesame\SiteBundle\Entity\Page $parent
+     * @return Page
+     */
+    public function setParent(\Sesame\SiteBundle\Entity\Page $parent = null)
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return \Sesame\SiteBundle\Entity\Page 
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
+
+    /**
+     * Add children
+     *
+     * @param \Sesame\SiteBundle\Entity\Page $children
+     * @return Page
+     */
+    public function addChild(\Sesame\SiteBundle\Entity\Page $children)
+    {
+        $this->children[] = $children;
+
+        return $this;
+    }
+
+    /**
+     * Remove children
+     *
+     * @param \Sesame\SiteBundle\Entity\Page $children
+     */
+    public function removeChild(\Sesame\SiteBundle\Entity\Page $children)
+    {
+        $this->children->removeElement($children);
+    }
+
+    /**
+     * Get children
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getChildren()
+    {
+        return $this->children;
     }
 }

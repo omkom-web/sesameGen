@@ -1,24 +1,38 @@
 {% extends "SesameSiteBundle::base.html.twig" %}
-{% block title %}{{ title }}{% endblock %}
-{% block description %}{{ description }}{% endblock %}
+{% block title %}{{ page.title }}{% endblock %}
+{% block description %}{{ page.description }}{% endblock %}
 
 {% block body %}
-<article id="{{ id }}">
-<h1><a href="#{id}">{{ title }}</a></h1>
 <div class="row">
-    <div class="large-6 columns">
-        {{ excerpt }}
-    </div>
-    <div class="large-6 columns">
-        <figure>
-            <img src="../img/article-1.png" width="" height="" alt="">
-            <caption><u>Protection contre les intempéries</u></caption>
-        </figure>
-    </div>
-</div>	
-    <br>
-    <p>Avec votre abri de piscine vous profiterez des premiers rayons de soleil pour vous baigner malgré les vents frais et les pluies intermittentes. En effet, dans votre piscine protégée, l'air ambiant enfermé à l'intérieur de l'abri sera plus chaud et vous ne subirez les caprices de la météo.</p>
-    <br>
-    <h6>Ecrit par <a href="https://plus.google.com/114255073898879709025?rel=author">Christophe Provost</a></h6>
-</article>
+    <article id="{{ page.id }}">
+        <h1 class="small-12 columns"><a href="#{{ page.id }}">{{ page.title }}</a></h1>
+        {% if page.image %} 
+        <em class="small-12 medium-6 columns">{{ page.excerpt }}</em>
+        <div class="small-12 medium-6 columns">
+            <figure>
+                <img src="../img/article-1.png" width="" height="" alt="">
+                <caption><u>Protection contre les intempéries</u></caption>
+            </figure>
+        </div>
+        {% else %}
+        <em class="small-12 columns">{{ page.excerpt }}</em>
+        {% endif %}
+        <div class="small-12 columns">
+            {{ page.body | raw }}
+            <br>
+            <h6>Ecrit par <a href="https://plus.google.com/114255073898879709025?rel=author">Christophe Provost</a></h6>
+        </div>
+    </article>
+</div>
+{% endblock %}
+
+{% block aside %}
+<div class="small-12 medium-3 columns formRel">
+    <aside>
+        <div id="formulaire" class="small-12 medium-12 large-12 columns item">
+            <h3>Contactez nos experts !</h3><br><br>
+            <iframe width="200" height="500" frameborder="0" style="border:0" border="0" src="http://sesamecover.com/_contact/contact.php"></iframe>
+        </div>
+    </aside>
+</div>
 {% endblock %}

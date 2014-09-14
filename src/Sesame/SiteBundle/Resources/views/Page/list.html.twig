@@ -1,13 +1,14 @@
 {% extends "SesameSiteBundle::base.html.twig" %}
 {% block title %}focus sur les ... par Sésame Cover{% endblock %}
 {% block description %}{% endblock %}
-{% block robots %}noidex,follow{% endblock %}
+{% block robots %}noindex,follow{% endblock %}
 
 {% block body %}
 {% for page in pages %}
-    {{ include(
-        '::detail.html.twig',
-        { 'page': page }
-    ) }}
+    {{ include( 'SesameSiteBundle:Page:detail.html.twig', { 'page': page } ) }}
 {% endfor %}
+{% endblock %}
+
+{% block aside %}
+    {{ parent() }}
 {% endblock %}

@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Page
- *
+ * @ORM\Table(name="pages")
  * @Gedmo\Tree(type="nested")
  * @ORM\Entity(repositoryClass="Sesame\SiteBundle\Entity\PageRepository")
  */
@@ -25,7 +25,7 @@ class Page
     private $id;
 
     /**
-    * @Gedmo\Slug(fields={"title"})
+    * @Gedmo\Slug(fields={"title", "id"}, updatable=true)
     * @ORM\Column(length=64, unique=true)
     */
     private $slug;
@@ -41,27 +41,32 @@ class Page
     * @ORM\Column(type="integer")
     */
     private $lft;
+    
     /**
     * @Gedmo\TreeRight
     * @ORM\Column(type="integer")
     */
     private $rgt;
+    
     /**
     * @Gedmo\TreeParent
     * @ORM\ManyToOne(targetEntity="Page", inversedBy="children")
     * @ORM\JoinColumn(name="parent_id", referencedColumnName="id", onDelete="SET NULL")
     */
     private $parent;
+    
     /**
     * @Gedmo\TreeRoot
     * @ORM\Column(type="integer", nullable=true)
     */
     private $root;
+    
     /**
     * @Gedmo\TreeLevel
     * @ORM\Column(name="lvl", type="integer")
     */
     private $level;
+    
     /**
     * @ORM\OneToMany(targetEntity="Page", mappedBy="parent")
     */
@@ -90,7 +95,7 @@ class Page
     /**
      * @var \stdClass
      *
-     * @ORM\Column(name="image", type="object")
+     * @ORM\Column(name="image", type="object", nullable=true)
      */
     private $image;
 
@@ -109,7 +114,8 @@ class Page
     {
         $this->children = new ArrayCollection();
     }
-    
+ 
+
     /**
      * Get id
      *
@@ -164,98 +170,6 @@ class Page
     public function getTitle()
     {
         return $this->title;
-    }
-
-    /**
-     * Set excerpt
-     *
-     * @param string $excerpt
-     * @return Page
-     */
-    public function setExcerpt($excerpt)
-    {
-        $this->excerpt = $excerpt;
-
-        return $this;
-    }
-
-    /**
-     * Get excerpt
-     *
-     * @return string 
-     */
-    public function getExcerpt()
-    {
-        return $this->excerpt;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return Page
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string 
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * Set image
-     *
-     * @param \stdClass $image
-     * @return Page
-     */
-    public function setImage($image)
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * Get image
-     *
-     * @return \stdClass 
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    /**
-     * Set body
-     *
-     * @param string $body
-     * @return Page
-     */
-    public function setBody($body)
-    {
-        $this->body = $body;
-
-        return $this;
-    }
-
-    /**
-     * Get body
-     *
-     * @return string 
-     */
-    public function getBody()
-    {
-        return $this->body;
     }
 
     /**
@@ -348,6 +262,98 @@ class Page
     public function getLevel()
     {
         return $this->level;
+    }
+
+    /**
+     * Set excerpt
+     *
+     * @param string $excerpt
+     * @return Page
+     */
+    public function setExcerpt($excerpt)
+    {
+        $this->excerpt = $excerpt;
+
+        return $this;
+    }
+
+    /**
+     * Get excerpt
+     *
+     * @return string 
+     */
+    public function getExcerpt()
+    {
+        return $this->excerpt;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Page
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set body
+     *
+     * @param string $body
+     * @return Page
+     */
+    public function setBody($body)
+    {
+        $this->body = $body;
+
+        return $this;
+    }
+
+    /**
+     * Get body
+     *
+     * @return string 
+     */
+    public function getBody()
+    {
+        return $this->body;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \stdClass $image
+     * @return Page
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \stdClass 
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 
     /**

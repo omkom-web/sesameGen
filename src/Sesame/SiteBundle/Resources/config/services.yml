@@ -5,3 +5,28 @@ services:
 #    sesame_site.example:
 #        class: %sesame_site.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+
+    sonata.admin.page:
+        class: Sesame\SiteBundle\Admin\PageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Contenu", label: "Pages" }
+        arguments:
+            - ~
+            - Sesame\SiteBundle\Entity\Page
+            - ~
+        calls:
+            - [ setTranslationDomain, [SesameSiteBundle]]
+            
+    gedmo.listener.tree:
+        class: Gedmo\Tree\TreeListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ @annotation_reader ] ]
+
+    gedmo.listener.timestampable:
+        class: Gedmo\Timestampable\TimestampableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ @annotation_reader ] ]

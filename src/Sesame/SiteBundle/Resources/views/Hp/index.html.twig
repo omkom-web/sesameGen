@@ -6,7 +6,30 @@
 <section>
     <header><h1>s</h1></header>
     {% for page in pages %}
-        {{ render(controller('SesameSiteBundle:Page:list', { 'max': 3 })) }}
+        {{ include(
+            'SesameSiteBundle:Page:detail.html.twig',
+            { 'page': page }
+        ) }}
     {% endfor %}
 </section>
+
+{#
+<div class="row">
+    <aside class="small-12 columns formRel">
+          <style>
+        .formRel { position:relative; }
+        #formulaire { position:absolute; }
+        #formulaire { top:-100px; }
+        #entreprise { margin-top:50px; }
+    </style>
+    <div id="formulaire" class="small-12 medium-12 large-12 columns item">
+        <h3>Contactez nos experts !</h3><br><br>
+        <iframe width="100%" height="500" frameborder="0" style="border:0" border="0" src="http://sesamecover.com/_contact/contact.php"></iframe>
+    </div></aside>
+</div>
+#}
+{% endblock %}
+
+{% block aside %}
+ {{ parent() }}
 {% endblock %}

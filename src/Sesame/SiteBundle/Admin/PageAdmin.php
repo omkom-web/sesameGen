@@ -15,8 +15,9 @@ class PageAdmin extends Admin
     {
         $formMapper
             ->add('title', 'text', array('label' => 'Titre de la page'))
-            ->add('description', 'text', array('label' => 'Description'))
-            ->add('excerpt', 'text', array('label' => 'Excpert'))
+            // ->add('slug', 'text', array('label' => 'slug'))
+            ->add('description', 'textarea', array('label' => 'Description'))
+            ->add('excerpt', 'textarea', array('label' => 'Excerpt'))
             // ->add('author', 'entity', array('class' => 'Sesame\SiteBundle\Entity\User'))
             ->add('body') //if no type is specified, SonataAdminBundle tries to guess it
         ;

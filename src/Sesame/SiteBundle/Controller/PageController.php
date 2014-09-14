@@ -33,7 +33,7 @@ class PageController extends Controller
         if (!$page) {
             throw $this->createNotFoundException('Oups ! Cette page n\'existe pas...');
         }
-        if($page->getTitle() != $slug OR $page->getId() != $id )
+        if($page->getSlug() != $slug OR $page->getId() != $id )
         {
             return $this->redirect($this->generateUrl('sesame_site_page_show', 
                 array(
