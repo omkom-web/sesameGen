@@ -4,23 +4,20 @@
 
 {% block body %}
 <div class="row">
-    <article id="{{ page.id }}">
-        <h1 class="small-12 columns"><a href="#{{ page.id }}">{{ page.title }}</a></h1>
-        {% if page.image %} 
-        <em class="small-12 medium-6 columns">{{ page.excerpt }}</em>
-        <div class="small-12 medium-6 columns">
-            <figure>
-                <img src="../img/article-1.png" width="" height="" alt="">
-                <caption><u>Protection contre les intempéries</u></caption>
-            </figure>
+    <article id="{{ page.id }}" itemscope itemtype="http://schema.org/Article">
+        <h1 class="small-12 columns" itemprop="name"><a href="#{{ page.id }}" itemprop="url">{{ page.title }}</a></h1>
+        
+        <em class="small-12 medium-6 columns" itemprop="headline">{{ page.excerpt }}</em>
+        {% if page.media %}
+        <div class="small-12 medium-6 columns right">
+            <img itemprop="image" src="{% path page.media, 'big' %}" alt="{{ page.excerpt }}" />
         </div>
-        {% else %}
-        <em class="small-12 columns">{{ page.excerpt }}</em>
         {% endif %}
+
         <div class="small-12 columns">
-            {{ page.body | raw }}
-            <br>
-            <h6>Ecrit par <a href="https://plus.google.com/114255073898879709025?rel=author">Christophe Provost</a></h6>
+            <div itemprop="articleBody">{{ page.body | raw }}</div>
+            <br />
+            <i>Ecrit par <a href="https://plus.google.com/114255073898879709025?rel=author">Christophe Provost</a></i>
         </div>
     </article>
 </div>

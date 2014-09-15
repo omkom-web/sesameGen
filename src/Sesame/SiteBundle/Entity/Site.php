@@ -19,8 +19,9 @@ class Site
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id = 0;
+    private $id;
 
     /**
     * @ORM\Column(type="text", length=64)
@@ -56,6 +57,12 @@ class Site
     * @ORM\Column(type="text", length=64)
     */
     private $gauid;
+    
+    /**
+     * 
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Gallery", cascade={"persist"})
+     */
+    private $gallery;
 
     public function __construct()
     {
@@ -222,5 +229,28 @@ class Site
     public function getGauid()
     {
         return $this->gauid;
+    }
+
+    /**
+     * Set gallery
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\Gallery $gallery
+     * @return Site
+     */
+    public function setGallery(\Application\Sonata\MediaBundle\Entity\Gallery $gallery = null)
+    {
+        $this->gallery = $gallery;
+
+        return $this;
+    }
+
+    /**
+     * Get gallery
+     *
+     * @return \Application\Sonata\MediaBundle\Entity\Gallery 
+     */
+    public function getGallery()
+    {
+        return $this->gallery;
     }
 }

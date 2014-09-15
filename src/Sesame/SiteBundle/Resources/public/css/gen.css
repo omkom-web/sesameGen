@@ -1,4 +1,10 @@
 .formRel { position:relative; }
 #formulaire { position:absolute; }
-#formulaire { top:-100px; }
+#formulaire { top:-25px; }
 #entreprise { margin-top:50px; }
+
+.titre {
+    line-height: 53px;
+}
+
+ARTICLE { color:#333 !important; }

@@ -100,13 +100,6 @@ class Page
     private $body;
 
     /**
-     * @var \stdClass
-     *
-     * @ORM\Column(name="image", type="object", nullable=true)
-     */
-    private $image;
-
-    /**
     * @Gedmo\Timestampable(on="create")
     * @ORM\Column(type="date")
     */

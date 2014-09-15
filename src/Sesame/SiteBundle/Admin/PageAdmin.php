@@ -49,7 +49,7 @@ class PageAdmin extends Admin
                     array(
                         'edit' => 'standard',
                         'inline' => 'table',
-                    )) //if no type is specified, SonataAdminBundle tries to guess it
+                    ))
             ->end()            
         ;
     }

@@ -1,5 +1,4 @@
 <?php
-// src/Sesame/SiteBundle/Admin/PostAdmin.php
 
 namespace Sesame\SiteBundle\Admin;
 
@@ -14,10 +13,31 @@ class SiteAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('title', 'text', array('label' => 'Titre de la page'))
-            ->add('description', 'textarea', array('label' => 'Description'))
-            ->add('excerpt', 'textarea', array('label' => 'Excerpt'))
-            ->add('gauid', 'text', array('label' => 'Google Analitycs ID'))
+            ->with('General', array(
+                    'class' => 'col-md-6'
+                ))
+                ->add('title', 'text', array('label' => 'Titre du site'))
+                ->add('description', 'textarea', array('label' => 'Description'))
+                ->add('excerpt', 'textarea', array('label' => 'Excerpt'))
+            ->end()
+            ->with('Infos', array(
+                    'class' => 'col-md-6'
+                ))
+                ->add('gauid', 'text', array('label' => 'Google Analitycs ID'))
+            ->end()
+            ->with('Image', array(
+                    'class' => 'col-md-6'
+                ))
+                ->add('gallery', 'sonata_type_model_list', 
+                    array(
+                        'required' => false,
+                        'by_reference' => true,
+                        ),
+                    array(
+                        'edit' => 'standard',
+                        'inline' => 'table',
+                    )) //if no type is specified, SonataAdminBundle tries to guess it
+            ->end()           
         ;
     }
 
@@ -26,6 +46,7 @@ class SiteAdmin extends Admin
     {
         $datagridMapper
             ->add('title')
+            ->add('gauid')
         ;
     }
 
@@ -34,7 +55,7 @@ class SiteAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('title')
-            ->add('slug')
+            ->add('gauid')
         ;
     }
 }

@@ -1,17 +1,16 @@
 {% if page.active %}
 <div class="large-12 columns">
 <div class="smile">
-    <article onclick="location.href = '{{ url('sesame_site_page_show', {'slug': page.slug, 'id': page.id, 'utm_medium': 'article' }) }}';">
+    <article onclick="location.href = '{{ url('sesame_site_page_show', {'slug': page.slug, 'id': page.id, 'utm_medium': 'article' }) }}';" itemscope itemtype="http://schema.org/Article">
         <header>
-            <h1><a href="{{ url('sesame_site_page_show', {'slug': page.slug, 'id': page.id }) }}">{{ page.title }}</a></h1>
-            {*<i></i>*}
+            <h1 itemprop="name"><a itemprip="url" href="{{ url('sesame_site_page_show', {'slug': page.slug, 'id': page.id }) }}">{{ page.title }}</a></h1>
+            <i>{{ page.updated | format_date(null, 'fr', 'Europe/Paris', constant('IntlDateFormatter::LONG')) }}</i>
         </header>
-        <div class="large-4 columns">
-            <img src="img/article-1.png" alt="abri stop intempéries" onclick="location.href = '{{ url('sesame_site_page_show', {'slug': page.slug, 'id': page.id, 'utm_medium': 'image' }) }}';"/>
+        <div class="small-12 large-4 columns">
+            <img itemprop="image" src="{% path page.media, 'small' %}" alt="{{ page.excerpt }}" onclick="location.href = '{{ url('sesame_site_page_show', {'slug': page.slug, 'id': page.id, 'utm_medium': 'image' }) }}';"/>
         </div>
-        <p class="subheader">
-            {{ page.description }}
-            <br/><br/><a href="{{ url('sesame_site_page_show', {'slug': page.slug, 'id': page.id }) }}"><img src="img/link.gif" border="0" alt="{{ page.title }}"></a></p>
+        <p class="subheader" itemprop="headline">{{ page.description }}</p>
+        <div class="clearfix"></div>
     </article>
 </div>
 </div>

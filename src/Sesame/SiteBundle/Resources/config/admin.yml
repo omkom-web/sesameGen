@@ -1,15 +1,16 @@
 sonata_admin:
-    title:      Sesame Core
-    title_logo: bundles/sesamesite/img/logo_sesame-small.png
+    title:      Admin
+    title_logo: http://sesamecover.com/wp-content/uploads/2013/12/TEST_logo_Sesamecover_texte_seul_noir_site_vp-2.png
     templates:
         dashboard: SonataAdminBundle:Core:dashboard.html.twig
-    dashboard:
-        groups:
-            sesame.admin.group.content:
-                label: sesame.admin.group.content
-                label_catalogue: SesameSiteBundle
-                items:
-                    - sonata.admin.page
+    # dashboard:
+        # groups:
+            # sesame.admin.group.content:
+                # label: Contenu
+                # label_catalogue: SesameSiteBundle
+                # items:
+                    # - sonata.admin.site
+                    # - sonata.admin.page
             # sesame.admin.group.blog:
                 # items: ~
                 # item_adds:

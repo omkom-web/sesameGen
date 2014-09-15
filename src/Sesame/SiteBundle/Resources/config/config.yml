@@ -71,6 +71,7 @@ sonata_media:
             formats:
                 small: { width: 180 , quality: 70}
                 big:   { width: 500 , quality: 70}
+                slider:   { width: 970 , quality: 90}
 
     cdn:
         server:

@@ -1,10 +1,10 @@
 {% extends "SesameSiteBundle::base.html.twig" %}
-{% block title %}focus sur les ... par Sésame Cover{% endblock %}
-{% block description %}{% endblock %}
+{% block title %}{{ site.title }}{% endblock %}
+{% block description %}{{ site.description }}{% endblock %}
 
 {% block body %}
 <section>
-    <header><h1>s</h1></header>
+    <header><h2>{{ site.excerpt }}</h2></header>
     {% for page in pages %}
         {{ include(
             'SesameSiteBundle:Page:detail.html.twig',
@@ -12,24 +12,12 @@
         ) }}
     {% endfor %}
 </section>
-
-{#
-<div class="row">
-    <aside class="small-12 columns formRel">
-          <style>
-        .formRel { position:relative; }
-        #formulaire { position:absolute; }
-        #formulaire { top:-100px; }
-        #entreprise { margin-top:50px; }
-    </style>
-    <div id="formulaire" class="small-12 medium-12 large-12 columns item">
-        <h3>Contactez nos experts !</h3><br><br>
-        <iframe width="100%" height="500" frameborder="0" style="border:0" border="0" src="http://sesamecover.com/_contact/contact.php"></iframe>
-    </div></aside>
-</div>
-#}
 {% endblock %}
 
 {% block aside %}
- {{ parent() }}
+{{ parent() }}
+{% endblock %}
+
+{% block slider %}
+{{ include( 'SesameSiteBundle:Widget:bloc_slider.html.twig', { 'slider': slider } ) }}
 {% endblock %}
