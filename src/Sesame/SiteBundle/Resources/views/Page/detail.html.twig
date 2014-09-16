@@ -1,17 +1,19 @@
 {% if page.active %}
-<div class="large-12 columns">
-<div class="smile">
-    <article onclick="location.href = '{{ url('sesame_site_page_show', {'slug': page.slug, 'id': page.id, 'utm_medium': 'article' }) }}';" itemscope itemtype="http://schema.org/Article">
-        <header>
-            <h1 itemprop="name"><a itemprip="url" href="{{ url('sesame_site_page_show', {'slug': page.slug, 'id': page.id }) }}">{{ page.title }}</a></h1>
-            <i>{{ page.updated | format_date(null, 'fr', 'Europe/Paris', constant('IntlDateFormatter::LONG')) }}</i>
-        </header>
-        <div class="small-12 large-4 columns">
-            <img itemprop="image" src="{% path page.media, 'small' %}" alt="{{ page.excerpt }}" onclick="location.href = '{{ url('sesame_site_page_show', {'slug': page.slug, 'id': page.id, 'utm_medium': 'image' }) }}';"/>
-        </div>
-        <p class="subheader" itemprop="headline">{{ page.description }}</p>
-        <div class="clearfix"></div>
-    </article>
-</div>
+<div class="small-12 columns">
+    <div class="smile">
+        <article onclick="location.href = '{{ url('sesame_site_page_show', {'slug': page.slug, 'id': page.id, 'utm_medium': 'article' }) }}';" itemscope itemtype="http://schema.org/Article">
+            <header>
+                <h1 itemprop="name"><a itemprop="url" href="{{ url('sesame_site_page_show', {'slug': page.slug, 'id': page.id }) }}#disqus_thread" data-disqus-identifier="{{ page.slug}}">{{ page.title }}</a></h1>
+                
+            </header>
+            <div class="small-12 large-4 columns">
+                <img itemprop="image" src="{% path page.media, 'small' %}" alt="{{ page.excerpt }}" onclick="location.href = '{{ url('sesame_site_page_show', {'slug': page.slug, 'id': page.id, 'utm_medium': 'image' }) }}';"/>
+            </div>
+            <p class="subheader" itemprop="headline">{{ page.description }}</p>
+            <meta name="dateCreated" content="{{ page.created|date('Y-m-d\\TH:i:sP') }}" />
+            <meta name="dateUpdated" content="{{ page.updated|date('Y-m-d\\TH:i:sP') }}" />
+            <div class="clearfix"></div>
+        </article>
+    </div>
 </div>
 {% endif %}

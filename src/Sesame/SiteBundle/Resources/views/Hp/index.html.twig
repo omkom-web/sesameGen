@@ -3,8 +3,11 @@
 {% block description %}{{ site.description }}{% endblock %}
 
 {% block body %}
-<section>
-    <header><h2>{{ site.excerpt }}</h2></header>
+<section class="small-12 columns">
+    <header class="small-12 columns">
+        <h2>{{ site.excerpt }}</h2>
+        <p>{{ site.description }}</p>
+    </header>
     {% for page in pages %}
         {{ include(
             'SesameSiteBundle:Page:detail.html.twig',
@@ -15,9 +18,53 @@
 {% endblock %}
 
 {% block aside %}
-{{ parent() }}
+<aside class="small-12 medium-3 columns">
+    <div class="panel">
+        <h2>L'entreprise Sesame</h2>
+        <center><img width="50%" src="../img/logo.png" alt="abri stop intempéries"/></center>
+        <br/><p>Dès le commencement, Sésame a choisi de proposer des produits de qualité et un service optimal pour la plus grande satisfaction de ses clients. 19 années d’innovations et d’avancées technologiques...</p>
+        <a href="entreprise.php">En savoir +</a>
+    </div>
+    
+    {{ include( 'SesameSiteBundle:Widget:bloc_reco.html.twig', { 'recopages': recopages } ) }}
+</aside>
 {% endblock %}
 
+{% block topbody %}
+<script>
+  (function() {
+    var cx = '012487409699681360658:8rpbjhyuggg';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+{{ parent() }}
+{% endblock %}
+            
 {% block slider %}
-{{ include( 'SesameSiteBundle:Widget:bloc_slider.html.twig', { 'slider': slider } ) }}
+{{ include( 'SesameSiteBundle:Widget:bloc_slider.html.twig', { 'slider': gallery } ) }}
+{% endblock %}
+
+{% block javascripts %}
+<script>$(function () {
+    $("#slides").responsiveSlides();
+});</script>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'homepage'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+var s = document.createElement('script'); s.async = true;
+s.type = 'text/javascript';
+s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script> 
 {% endblock %}

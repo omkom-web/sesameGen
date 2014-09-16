@@ -37,7 +37,7 @@ class Site
 
     /**
     * @ORM\Column(type="text")
-    * @Assert\NotBlank(message="Titre obligatoire")
+    * @Assert\NotBlank(message="Description obligatoire")
     */  
     private $description;
 

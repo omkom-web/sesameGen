@@ -14,6 +14,14 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Site
 {
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
 
     /**
     * @ORM\Column(type="text", length=64)
@@ -29,7 +37,7 @@ class Site
 
     /**
     * @ORM\Column(type="text")
-    * @Assert\NotBlank(message="Titre obligatoire")
+    * @Assert\NotBlank(message="Description obligatoire")
     */  
     private $description;
 

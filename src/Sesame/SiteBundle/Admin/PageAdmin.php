@@ -68,6 +68,7 @@ class PageAdmin extends Admin
         $listMapper
             ->add('active', null, array('editable' => true))
             ->addIdentifier('title')
+            ->add('viewcount')
             ->add('slug')
             ->add('updated')
         ;

@@ -18,6 +18,10 @@ sesame_site_page_show:
         # slug:   \w+
         id:     \d+
         
+sesame_site_contact_show:
+    path:     /contact.html
+    defaults: { _controller: SesameSiteBundle:Contact:view }
+        
 sesame_site_robots:
     path:     /robots.txt
     defaults: { _controller: SesameSiteBundle:Widget:robots}

@@ -25,6 +25,13 @@ class Page
     private $id;
     
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="viewcount", type="integer", nullable=true)
+     */
+    private $viewcount;
+    
+    /**
      * @var \Boolean
      *
      * @ORM\Column(type="boolean")
@@ -539,5 +546,28 @@ class Page
     public function getMedia()
     {
         return $this->media;
+    }
+
+    /**
+     * Set viewcount
+     *
+     * @param integer $viewcount
+     * @return Page
+     */
+    public function setViewcount($viewcount)
+    {
+        $this->viewcount = $viewcount;
+
+        return $this;
+    }
+
+    /**
+     * Get viewcount
+     *
+     * @return integer 
+     */
+    public function getViewcount()
+    {
+        return $this->viewcount;
     }
 }

@@ -16,17 +16,27 @@ class HpController extends Controller
             throw $this->createNotFoundException('Oups ! Aucun site n\'est encore présent en base...');
         }
             
-        $slider = $site->getGallery();
         
         $pages = $this->getDoctrine()
             ->getRepository('SesameSiteBundle:Page')
             ->findAll();
             
+        $recopages = $this->getDoctrine()
+            ->getRepository('SesameSiteBundle:Page')
+            ->findByViewcount(3);
+            
         $return = array(
             'site' => $site,
             'pages' => $pages,
-            'slider' => $slider
+            'recopages' => $recopages
         );
+        
+        if($site->getGallery())
+        {
+            $return['gallery'] = $site->getGallery();
+        }
+        
+        
         return $this->render('SesameSiteBundle:Hp:index.html.twig', $return);
     }
 

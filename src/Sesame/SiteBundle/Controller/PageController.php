@@ -3,6 +3,7 @@
 namespace Sesame\SiteBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Appication\Sonata\MediaBundle\Entity\Gallery as gallery;
 
 class PageController extends Controller
 {
@@ -33,6 +34,13 @@ class PageController extends Controller
         if (!$page) {
             throw $this->createNotFoundException('Oups ! Cette page n\'existe pas...');
         }
+        
+        $page->setViewcount($page->getViewcount()+1);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($page);
+        $em->flush();
+        
+        $breadcrumb = array($page);
         if($page->getSlug() != $slug OR $page->getId() != $id )
         {
             return $this->redirect($this->generateUrl('sesame_site_page_show', 
@@ -41,9 +49,17 @@ class PageController extends Controller
                     'slug' => $page->getSlug(),
                 ), 301));
         }
+        
         $return = array(
-            'page' => $page
+            'page' => $page,
+            'breadcrumb' => $breadcrumb,
         );
+        
+        if($page->getGallery())
+        {
+            $return['gallery'] = $page->getGallery()->getGalleryHasMedias();
+        }
+
         return $this->render('SesameSiteBundle:Page:view.html.twig', $return);
     }
     
