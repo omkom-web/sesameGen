@@ -1,0 +1,8 @@
+{% for page in recopages %}
+    {% if page.active %}
+    <div class="panel hide-for-small">
+        <h5><a href="{{ url('sesame_site_page_show', {'slug': page.slug, 'id': page.id, 'utm_medium': 'article' }) }}">{{ page.title }}<br /><br />
+        <img src="{% path page.media, 'small' %}" alt="{{ page.description }}" /></a></h5>
+    </div>
+    {% endif %}
+{% endfor %}
