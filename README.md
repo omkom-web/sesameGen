@@ -21,3 +21,7 @@ DEPLOIEMENT
 ------------------------------------------
     Remplir les [variable] avec les bonnes valeurs
 
+5) lancer l'initialisation 
+------------------------------------------
+    
+    app/console doctrine:schema:create
