@@ -23,6 +23,23 @@ class PageAdmin extends Admin
                 ->add('excerpt', 'textarea', array('label' => 'Excerpt'))
                 // ->add('author', 'entity', array('class' => 'Sesame\SiteBundle\Entity\User'))
                 ->add('body')
+                ->add('body', 'ckeditor', array(
+                'config' => array(
+                    'toolbar' => array(
+                        array(
+                            'name'  => 'document',
+                            'items' => array('Source', '-', 'Save', 'NewPage', 'DocProps', 'Preview', 'Print', '-', 'Templates'),
+                        ),
+                        '/',
+                        array(
+                            'name'  => 'basicstyles',
+                            'items' => array('Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat'),
+                        ),
+                    ),
+                    'uiColor' => '#ffffff',
+                    //...
+                ),
+            ))
             ->end()
             ->with('Publication', array (
                     'class' => 'col-md-6'

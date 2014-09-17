@@ -57,7 +57,7 @@ class PageController extends Controller
         
         if($page->getGallery())
         {
-            $return['gallery'] = $page->getGallery()->getGalleryHasMedias();
+            $return['gallery'] = $page->getGallery();
         }
 
         return $this->render('SesameSiteBundle:Page:view.html.twig', $return);

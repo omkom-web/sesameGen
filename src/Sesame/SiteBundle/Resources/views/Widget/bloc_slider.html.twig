@@ -1,11 +1,15 @@
 <div class="row">
     <div class="large-12 columns">
         <ul id="slides">
-        {%for media in slider %}
-            {%if media.getMedia.enabled %}
+        {%for index, media  in slider.galleryHasMedias %}
+            {#%if media.getMedia.enabled %#}
             <li><img src="{% path media.getMedia, 'slider' %}" alt="{{ media.getMedia.name }}" /></li>
-            {% endif %}
+            {#% endif %#}
         {% endfor %}
         </ul>
     </div>
 </div>
+
+<script>$(function () {
+    $("#slides").responsiveSlides();
+});</script>

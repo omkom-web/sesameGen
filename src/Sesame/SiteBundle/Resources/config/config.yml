@@ -1,6 +1,6 @@
 imports:
     - { resource: admin.yml }
-    # - { resource: security.yml }
+    - { resource: security.yml }
     - { resource: services.yml }
     
 framework:
@@ -35,6 +35,8 @@ doctrine:
                 mappings: ~
 
 stof_doctrine_extensions:
+    uploadable:
+        validate_writable_directory: false
     default_locale: fr_FR
     orm:
         default:
@@ -43,16 +45,20 @@ stof_doctrine_extensions:
             timestampable: true
         # other:
             # timestampable: true
-            
+# Twig Configuration
 twig:
-    debug: %kernel.debug%
-    strict_variables: %kernel.debug%
-    # base_template_class: Sonata\CacheBundle\Twig\TwigTemplate14
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+    globals:
+        webmaster: erlé Alberton
+        webmaster_email: erle.alberton@gmail.com
+        _odd: false
     form:
         resources:
-            - 'SonataFormatterBundle:Form:formatter.html.twig'
-            # - 'SonataMediaBundle:Form:media_widgets.html.twig'
-    # exception_controller: 'FOS\RestBundle\Controller\ExceptionController::showAction'
+            # other files
+            - 'SonataMediaBundle:Form:media_widgets.html.twig'
+            # - '::forms.html.twig'          
+
 
 sonata_media:
     providers:
@@ -133,20 +139,16 @@ sonata_block:
 fos_user:
     db_driver:      orm # can be orm or odm
     firewall_name:  main
-    user_class:     Sonata\UserBundle\Entity\BaseUser
+    user_class:     Application\Sonata\UserBundle\Entity\User
 
     group:
-        group_class:   Sonata\UserBundle\Entity\BaseGroup
-        group_manager: sonata.user.orm.group_manager 
+        group_class:   Application\Sonata\UserBundle\Entity\Group
+        group_manager: sonata.user.orm.group_manager
+
     service:
-        user_manager: sonata.user.orm.user_manager 
+        user_manager: sonata.user.orm.user_manager         
 
 sonata_user:
     security_acl: true
     manager_type: orm # can be orm or mongodb
 
-# app/config/security.yml
-security:
-    # [...]
-    acl:
-        connection: default

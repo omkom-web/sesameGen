@@ -34,6 +34,7 @@ class HpController extends Controller
         if($site->getGallery())
         {
             $return['gallery'] = $site->getGallery();
+            
         }
         
         
