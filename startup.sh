@@ -5,7 +5,7 @@ php composer.phar update
 php composer.phar install
 php app/console doctrine:schema:update
 php app/console asset:install
-# php app/console fos:user:create --super-admin
 php app/check.php
+# php app/console fos:user:create --super-admin
 
 

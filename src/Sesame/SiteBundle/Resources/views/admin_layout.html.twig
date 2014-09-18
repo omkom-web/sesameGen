@@ -1,6 +1,7 @@
 {% extends "SonataAdminBundle::standard_layout.html.twig" %}
 
 {% block javascripts %}
+
 <style>
 .logo img {
     padding-bottom: 4px;
@@ -8,11 +9,11 @@
 }
 </style>
 <!-- ... -->
-    <script type="text/javascript" src="path_to_jquery.min.js"></script>
-    <script type="text/javascript" src="/bundles/sonatacore/public/vendor/moment/min/moment.min.js"></script>
-    <script type="text/javascript" src="path_to_bootstrap.min.js"></script>
-    <script type="text/javascript" src="/bundles/sonatacore/public/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-    <link rel="stylesheet" href="path_to_bootstrap.min.css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script type="text/javascript" src="/bundles/sonatacore/vendor/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/bundles/sonatacore/public/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
 {#
 {{ parent() }}{{ tinymce_init() }}
@@ -28,6 +29,7 @@
         if( document.location.href.indexOf('/resa/list') > -1){
             setInterval("location.reload(true)", 60000);
         }
+        $('A[href=http://sonata-project.org]').html('');
     });
 </script>
 <script src="/bundles/sonataadmin/vendor/jquery/dist/jquery.min.js" type="text/javascript"></script>

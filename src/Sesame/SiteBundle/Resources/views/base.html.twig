@@ -8,7 +8,11 @@
     
     <link rel="stylesheet" href="{{ asset('/bundles/sesamesite/css/foundation.css') }}">
     <link rel="stylesheet" href="{{ asset('/bundles/sesamesite/css/gen.css') }}">
-    {% block stylesheets %}{% endblock %}
+    {% block stylesheets %}
+        {#% stylesheets debug=false filter='lessphp' output='css/common.css'
+            '@SesameSiteBundle/Resources/less/common.less'%}
+        {% endstylesheets %#}
+    {% endblock %}
     
     <script src="{{ asset('/bundles/sesamesite/js/vendor/modernizr.js') }}"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
