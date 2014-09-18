@@ -5,4 +5,5 @@
 /vendor/
 /app/config/parameters.yml
 /web/uploads/
+/___/
 *.php~
