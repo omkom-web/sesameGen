@@ -135,24 +135,20 @@ sonata_block:
         sonata.user.block.menu:    # used to display the menu in profile pages
         sonata.user.block.account: # used to display menu option (login option)
         sonata.block.service.text: # used to if you plan to use Sonata user routes
+
 fos_user:
-    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
-    firewall_name: main
+    db_driver:      orm # can be orm or odm
+    firewall_name:  main
     user_class:     Application\Sonata\UserBundle\Entity\User
-    
-# fos_user:
-    # db_driver:      orm # can be orm or odm
-    # firewall_name:  main
-    # user_class:     Application\Sonata\UserBundle\Entity\User
 
-    # group:
-        # group_class:   Application\Sonata\UserBundle\Entity\Group
-        # group_manager: sonata.user.orm.group_manager
+    group:
+        group_class:   Application\Sonata\UserBundle\Entity\Group
+        group_manager: sonata.user.orm.group_manager
 
-    # service:
-        # user_manager: sonata.user.orm.user_manager         
+    service:
+        user_manager: sonata.user.orm.user_manager         
 
-# sonata_user:
-    # security_acl: true
-    # manager_type: orm # can be orm or mongodb
+sonata_user:
+    security_acl: true
+    manager_type: orm # can be orm or mongodb
 

@@ -20,7 +20,7 @@ sesame_site_page_show:
     requirements:
         # slug:   \w+
         id:     \d+
-        
+
 sesame_site_contact_show:
     path:     /contact.html
     defaults: { _controller: SesameSiteBundle:Contact:view }

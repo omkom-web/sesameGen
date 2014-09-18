@@ -1,7 +1,0 @@
-#/usr/bin/bash
-
-git checkout https://github.com/omkom-web/sesameGen.git
-php composer.phar diagnose
-php composer.phar update -n
-
-
