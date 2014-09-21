@@ -4,6 +4,23 @@
 
     sudo apt-get install git
     
+Config apache MINIMALE
+========================
+    <VirtualHost *:80>
+        ServerName [YOUR_DNS.TLD]
+        RewriteEngine On
+        
+        DocumentRoot [YOUR_PATH]/web
+        DirectoryIndex app.php
+        
+        <Directory [YOUR_PATH]/web >
+            Options Indexes FollowSymLinks MultiViews
+        </Directory>
+        
+        ErrorLog  [YOUR_PATH]/log/apache2/error.log
+        CustomLog [YOUR_PATH]/log/apache2/access.log combined
+        
+    </VirtualHost>
 
 Mode opératoire
 ========================
@@ -12,11 +29,10 @@ Mode opératoire
 se placer dans le répertoire racine du site
     
 a) Cloner le Repository
+Le point à la fin est important !
 
     git clone https://github.com/omkom-web/sesameGen.git .
-    
-le point à la fin est important !
-    
+     
 b) Lancer le script d'initialisation
 
     sh startup.sh
@@ -35,7 +51,7 @@ e) Mettre à jour les bundles
         
 2) Mise à jour
 ------------------------------------------
-
-    sh update.sh
 placer ce script en CRON permet d'être toujours à jour !!
+    sh update.sh
+
     
