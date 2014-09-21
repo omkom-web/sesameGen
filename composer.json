@@ -52,6 +52,7 @@
         "sonata-project/easy-extends-bundle": "dev-master",
         "sonata-project/media-bundle": "2.3.*@dev",
         "sonata-project/intl-bundle": "~2.2",
+        
         "nelmio/api-doc-bundle": "~2.4",
         "leafo/lessphp": "*"
         
@@ -81,7 +82,9 @@
         ]
     },
     "config": {
-        "bin-dir": "bin"
+        "bin-dir": "bin",
+        "github-protocols": ["git"],
+        "discard-changes": true
     },
     "extra": {
         "symfony-app-dir": "app",

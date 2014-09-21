@@ -27,10 +27,6 @@ class AppKernel extends Kernel
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
             
-            new FOS\UserBundle\FOSUserBundle(),
-            new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
-            new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
-            
             // new Sonata\MarkItUpBundle\SonataMarkItUpBundle(),
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
@@ -39,8 +35,12 @@ class AppKernel extends Kernel
             
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
-            new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
             new Sonata\IntlBundle\SonataIntlBundle(),
+            
+            new FOS\UserBundle\FOSUserBundle(),
+            new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
+            new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
+            new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
            
         );
 
