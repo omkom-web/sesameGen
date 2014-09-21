@@ -35,13 +35,13 @@ Le point à la fin est important !
      
 b) Lancer le script d'initialisation
 
-    sh startup.sh
+    php composer.phar update -n
 
 c) Lancer la config locale
 
     php composer.phar install
     
-d) création du compte super-admin
+d) Création du compte super-admin
 
     php app/console fos:user:create --super-admin
     
@@ -51,7 +51,7 @@ e) Mettre à jour les bundles
         
 2) Mise à jour
 ------------------------------------------
-placer ce script en CRON permet d'être toujours à jour !!
+Placer ce script en CRON permet d'être toujours à jour !!
     sh update.sh
 
     

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7dac1666838bb92f3e628f1cdc4e2fdc",
+    "hash": "14024ac9e19b65de1b57d379ab7106bc",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -2842,12 +2842,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "d3b00814452c942b40bd87309efe198c6359d873"
+                "reference": "a187530f56c36716a4e8d150b1d00416cbda4f9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/d3b00814452c942b40bd87309efe198c6359d873",
-                "reference": "d3b00814452c942b40bd87309efe198c6359d873",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/a187530f56c36716a4e8d150b1d00416cbda4f9e",
+                "reference": "a187530f56c36716a4e8d150b1d00416cbda4f9e",
                 "shasum": ""
             },
             "require": {
@@ -2913,7 +2913,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2014-09-19 13:37:14"
+            "time": "2014-09-21 16:51:01"
         },
         {
             "name": "sonata-project/block-bundle",
