@@ -11,5 +11,3 @@ php app/console doctrine:schema:update --force
 php app/console asset:install
 php app/check.php
 # php app/console fos:user:create --super-admin
-
-
