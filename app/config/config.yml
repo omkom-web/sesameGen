@@ -1,11 +1,13 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: @OmkomSiteBundle/Resources/config/config.yml }
+    - { resource: @OmkomAdminBundle/Resources/config/config.yml }
 
 framework:
     #esi:             ~
-    # translator:      { fallback: "%locale%" }
-    translator: ~
+    translator:      { fallback: "%locale%" }
+    # translator: ~
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -71,21 +73,6 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
     
-    
-    
-    
-    
-# stof_doctrine_extensions:
-    # uploadable:
-        # validate_writable_directory: true
-    # default_locale: fr_FR
-    # orm:
-        # default:
-            # tree: true
-            # sluggable: true
-            # timestampable: true
-        # other:
-            # timestampable: true
 
 sonata_doctrine_orm_admin:
     # default value is null, so doctrine uses the value defined in the configuration
@@ -124,10 +111,10 @@ fos_user:
 
     group:
         group_class:   Application\Sonata\UserBundle\Entity\Group
-        group_manager: sonata.user.orm.group_manager                    # If you're using doctrine orm (use sonata.user.mongodb.user_manager for mongodb)
+        group_manager: sonata.user.orm.group_manager
 
     service:
-        user_manager: sonata.user.orm.user_manager                      # If you're using doctrine orm (use sonata.user.mongodb.group_manager for mongodb)
+        user_manager: sonata.user.orm.user_manager
 
 sonata_media:
     providers:
@@ -144,13 +131,13 @@ sonata_media:
                 - sonata.media.provider.file
 
             formats:
-                small: { width: 180 , quality: 70}
-                big:   { width: 500 , quality: 70}
-                slider:   { width: 970 , quality: 90}
+                small:  { width: 180 , quality: 70}
+                big:    { width: 500 , quality: 70}
+                slider: { width: 970 , quality: 90}
 
     cdn:
         server:
-            path: /uploads/media # http://media.sonata-project.org/
+            path: /uploads/media
 
     filesystem:
         local:
