@@ -3,17 +3,15 @@ parameters:
     database_driver: pdo_mysql
     database_host: 127.0.0.1
     database_port: null
-    database_name: YOUR_LOCAL_DB_NAME
-    database_user: YOUR_LOCAL_DB_USER
-    database_password: 'YOUR_LOCAL_DB_PASSWORD'
+    database_name: [DBNAME]
+    database_user: [DBUSER]
+    database_password: '[DBPASSWORD]'
     mailer_transport: smtp
     mailer_host: 127.0.0.1
     mailer_user: null
     mailer_password: null
     locale: fr
-    
-    #[secret https://api.wordpress.org/secret-key/1.1/salt/ AND CHOOSE AN UNIQ SALT
-    secret: 'CHECK_https://api.wordpress.org/secret-key/1.1/salt/'
+    secret: '[CF https://api.wordpress.org/secret-key/1.1/salt/ AND CHOOSE AN UNIQ SALT'
     debug_toolbar: true
     debug_redirects: true
     use_assetic_controller: true

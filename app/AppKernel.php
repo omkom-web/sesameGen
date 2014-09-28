@@ -8,9 +8,6 @@ class AppKernel extends Kernel
     public function registerBundles()
     {
         $bundles = array(
-            new Sesame\SiteBundle\SesameSiteBundle(),
-            new Sesame\AdminBundle\SesameAdminBundle(),
-             
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
@@ -20,29 +17,29 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             
+            // Add your dependencies
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
-            
-            new Sonata\MediaBundle\SonataMediaBundle(),
-            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
-            new Sonata\AdminBundle\SonataAdminBundle(),
-            
-            // new Sonata\MarkItUpBundle\SonataMarkItUpBundle(),
-            new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
-            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
-            new Sonata\FormatterBundle\SonataFormatterBundle(),
-            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new Sonata\IntlBundle\SonataIntlBundle(),
             
+            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+            new Sonata\AdminBundle\SonataAdminBundle(),
+            
+            // USER
             new FOS\UserBundle\FOSUserBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
+            
+            // MEDIA
+            new Sonata\MediaBundle\SonataMediaBundle(),
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
-     
+            
+            new Omkom\AdminBundle\OmkomAdminBundle(),
+            new Omkom\SiteBundle\OmkomSiteBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
