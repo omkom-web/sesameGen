@@ -1,0 +1,14 @@
+.formRel { position:relative; }
+#formulaire { position:absolute; }
+#formulaire { top:-25px; }
+#entreprise { margin-top:50px; }
+
+.titre {
+    line-height: 53px;
+}
+
+ARTICLE { color:#333 !important; }
+.bgwight { background:white; }
+
+.smile { box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); top:0; transition:top 100ms ease-in 0s !important}
+.smile:hover { position:relative; top:-5px }

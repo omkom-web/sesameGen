@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>{% block title %} / SésameCover /{% endblock %}</title>
+    <meta name="description" content="{% block description %}{% endblock %}">
+    <meta name="robots" content="{% block robots %}index,follow{% endblock %}">
+    
+    <link rel="stylesheet" href="{{ asset('/bundles/omkomsite/css/foundation.css') }}">
+    <link rel="stylesheet" href="{{ asset('/bundles/omkomsite/css/gen.css') }}">
+    {% block stylesheets %}
+        {#% stylesheets debug=false filter='lessphp' output='css/common.css'
+            '@OmkomSiteBundle/Resources/less/common.less'%}
+        {% endstylesheets %#}
+    {% endblock %}
+    
+    <script src="{{ asset('/bundles/omkomsite/js/vendor/modernizr.js') }}"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script src="{{ asset('/bundles/omkomsite/js/responsiveslides.min.js') }}"></script>
+    
+</head>
+
+<body>
+
+{{ include('OmkomSiteBundle:Widget:header.html.twig') }}
+ 
+<div class="backgrd">
+    {% block slider %}{% endblock %}
+    
+    <div class="row"  role="content">
+        <div class="small-12 medium-9 columns">
+            {% block body %}{% endblock %}
+        </div>
+
+        {% block aside %}
+        <aside class="small-12 medium-3 columns formRel">
+            <div id="formulaire" class="small-12 medium-12 large-12 columns item">
+                <h3>Contactez nos experts !</h3><br><br>
+                <iframe width="200" height="500" frameborder="0" style="border:0" border="0" src="http://sesamecover.com/_contact/contact.php"></iframe>
+            </div>
+        </aside>
+        {% endblock %}
+        <div class="clearfix"></div>
+        {% block topbody %}{% endblock %}
+    </div>
+    
+    {{ include('OmkomSiteBundle:Widget:footer.html.twig') }}
+ 
+    </div>
+  </div>
+ {% block javascripts %}{% endblock %}
+  
+  <script>
+  document.write('<script src={{ asset('/bundles/omkomsite/js/vendor') }}' +
+  ('__proto__' in {} ? 'zepto' : 'jquery') +
+  '.js><\/script>');
+  </script>
+  <script src="{{ asset('/bundles/omkomsite/js/foundation.min.js') }}"></script>
+  <script>
+    $(document).foundation();
+  </script>
+<!-- End Footer -->
+    
+    
+</body>
+</html>
+
+
+
+
+

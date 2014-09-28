@@ -1,0 +1,46 @@
+parameters:
+    # ... other parameters
+    security.acl.permission.map.class: Sonata\AdminBundle\Security\Acl\Permission\AdminPermissionMap
+    # optionally use a custom MaskBuilder
+    #sonata.admin.security.mask.builder.class: Sonata\AdminBundle\Security\Acl\Permission\MaskBuilder
+
+services:
+#    sesame_site.example:
+#        class: %sesame_site.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+    sonata.admin.page:
+        class: Omkom\AdminBundle\PageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Contenu", label: "Pages" }
+        arguments:
+            - ~
+            - Omkom\SiteBundle\Entity\Page
+            - ~
+        calls:
+            - [ setTranslationDomain, [OmkomSiteBundle]]
+            
+    sonata.admin.site:
+        class: Omkom\AdminBundle\SiteAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Contenu", label: "Site" }
+        arguments:
+            - ~
+            - Omkom\SiteBundle\Entity\Site
+            - ~
+        calls:
+            - [ setTranslationDomain, [OmkomSiteBundle]]
+            
+    # gedmo.listener.tree:
+        # class: Gedmo\Tree\TreeListener
+        # tags:
+            # - { name: doctrine.event_subscriber, connection: default }
+        # calls:
+            # - [ setAnnotationReader, [ @annotation_reader ] ]
+
+    gedmo.listener.timestampable:
+        class: Gedmo\Timestampable\TimestampableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ @annotation_reader ] ]

@@ -1,0 +1,27 @@
+omkom_site_homepage:
+    path:     /
+    defaults: { _controller: OmkomSiteBundle:Hp:index }
+
+omkom_site_page_index:
+    path:     /pages/
+    defaults: { _controller: OmkomSiteBundle:Page:list }
+        
+omkom_site_sitemap:
+    path:     /plan-de-site.{_format}
+    defaults: { _controller: OmkomSiteBundle:Page:list, _format: html }
+        # _format:    html|rss|xml
+    
+omkom_site_page_show:
+    path:     /pages/{slug}.{id}.html
+    defaults: { _controller: OmkomSiteBundle:Page:view }
+    requirements:
+        # slug:   \w+
+        id:     \d+
+
+omkom_site_contact_show:
+    path:     /contact.html
+    defaults: { _controller: OmkomSiteBundle:Contact:view }
+        
+omkom_site_robots:
+    path:     /robots.txt
+    defaults: { _controller: OmkomSiteBundle:Widget:robots}
