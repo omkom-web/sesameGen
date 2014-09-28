@@ -17,6 +17,9 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             
+            new Omkom\AdminBundle\OmkomAdminBundle(),
+            new Omkom\SiteBundle\OmkomSiteBundle(),
+            
             // Add your dependencies
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
@@ -38,8 +41,7 @@ class AppKernel extends Kernel
             new Sonata\MediaBundle\SonataMediaBundle(),
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
             
-            new Omkom\AdminBundle\OmkomAdminBundle(),
-            new Omkom\SiteBundle\OmkomSiteBundle(),
+            
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
