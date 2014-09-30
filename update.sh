@@ -1,6 +1,6 @@
 #/usr/bin/bash
-git pull
-php composer.phar update -n
+#git pull
+#php composer.phar update -n
 php app/console doctrine:schema:update --dump-sql
 php app/console doctrine:schema:update --force
 php app/console asset:install
