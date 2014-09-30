@@ -68,7 +68,7 @@
     },
     "config": {
         "bin-dir": "bin",
-        "github-protocols": ["git"],
+        "github-protocols": ["git", "https", "http"],
         "discard-changes": true
     },
     "extra": {

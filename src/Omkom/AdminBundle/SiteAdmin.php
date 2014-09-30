@@ -17,6 +17,7 @@ class SiteAdmin extends Admin
                     'class' => 'col-md-6'
                 ))
                 ->add('title', 'text', array('label' => 'Titre du site'))
+                ->add('logo')
                 ->add('description', 'textarea', array('label' => 'Description'))
                 ->add('excerpt', 'textarea', array('label' => 'Excerpt'))
             ->end()
@@ -28,6 +29,15 @@ class SiteAdmin extends Admin
             ->with('Image', array(
                     'class' => 'col-md-6'
                 ))
+                ->add('image', 'sonata_type_model_list', 
+                    array(
+                        'required' => false,
+                        'by_reference' => true,
+                        ),
+                    array(
+                        'edit' => 'standard',
+                        'inline' => 'table',
+                    ))
                 ->add('gallery', 'sonata_type_model_list', 
                     array(
                         'required' => false,
@@ -36,7 +46,7 @@ class SiteAdmin extends Admin
                     array(
                         'edit' => 'standard',
                         'inline' => 'table',
-                    )) //if no type is specified, SonataAdminBundle tries to guess it
+                    ))
             ->end()           
         ;
     }
