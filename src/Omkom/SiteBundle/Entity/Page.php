@@ -30,6 +30,7 @@ class Page
      */
     private $viewcount;
     
+    
     /**
      * @var \Boolean
      * @ORM\Column(type="boolean")
