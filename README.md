@@ -6,31 +6,40 @@
     
 ========================
 1° installation  
-========================   
+========================
+
 Cloner le Repository
+
     git clone https://github.com/omkom-web/sesameGen.git .
     
 Mettre à jour les bundle distants
+
     php composer.phar update
 
 Lancer le script d'install
+
     php app/console omkom:deploy install
 
 Créer un super utilisateur
+
     php app/console fos:user:create --super-admin
     
 ========================
 Le reste du temps
-========================      
+========================
+
 Upgrade en cron
+
     php app/console omkom:deploy upgrade
     
 Update 
+
     php app/console omkom:deploy update
 
 ======================== 
 Config apache MINIMALE
 ========================
+
     <VirtualHost *:80>
         ServerName [YOUR_DNS.TLD]
         RewriteEngine On
