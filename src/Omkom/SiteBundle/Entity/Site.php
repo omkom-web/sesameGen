@@ -74,6 +74,12 @@ class Site
      * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
      */
     private $image;
+    
+    /**
+     * 
+     * @ORM\ManyToOne(targetEntity="Omkom\SiteBundle\Entity\Societe", cascade={"persist"})
+     */
+    private $societe;
 
     public function __construct()
     {
@@ -265,18 +271,7 @@ class Site
         return $this->gallery;
     }
 
-    /**
-     * Set logo
-     *
-     * @param \Application\Sonata\MediaBundle\Entity\Media $logo
-     * @return Site
-     */
-    public function setLogo(\Application\Sonata\MediaBundle\Entity\Media $logo = null)
-    {
-        $this->logo = $logo;
-
-        return $this;
-    }
+   
 
     /**
      * Get logo
@@ -309,5 +304,41 @@ class Site
     public function getImage()
     {
         return $this->image;
+    }
+
+    /**
+     * Set societe
+     *
+     * @param \Omkom\SiteBundle\Entity\Societe $societe
+     * @return Site
+     */
+    public function setSociete(\Omkom\SiteBundle\Entity\Societe $societe = null)
+    {
+        $this->societe = $societe;
+
+        return $this;
+    }
+
+    /**
+     * Get societe
+     *
+     * @return \Omkom\SiteBundle\Entity\Societe 
+     */
+    public function getSociete()
+    {
+        return $this->societe;
+    }
+
+    /**
+     * Set logo
+     *
+     * @param string $logo
+     * @return Site
+     */
+    public function setLogo($logo)
+    {
+        $this->logo = $logo;
+
+        return $this;
     }
 }

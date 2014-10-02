@@ -14,7 +14,7 @@ class SiteAdmin extends Admin
     {
         $formMapper
             ->with('General', array(
-                    'class' => 'col-md-6'
+                    'class' => 'col-sm-12 col-md-4'
                 ))
                 ->add('title', 'text', array('label' => 'Titre du site'))
                 ->add('logo')
@@ -26,8 +26,21 @@ class SiteAdmin extends Admin
                 ))
                 ->add('gauid', 'text', array('label' => 'Google Analitycs ID'))
             ->end()
+            ->with('Societe', array(
+                    'class' => 'col-sm-12 col-md-4'
+                ))
+                ->add('societe', 'sonata_type_model_list', 
+                    array(
+                        'required' => false,
+                        'by_reference' => true,
+                        ),
+                    array(
+                        'edit' => 'standard',
+                        'inline' => 'table',
+                    ))
+            ->end()    
             ->with('Image', array(
-                    'class' => 'col-md-6'
+                    'class' => 'col-sm-12 col-md-4'
                 ))
                 ->add('image', 'sonata_type_model_list', 
                     array(

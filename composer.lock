@@ -2428,12 +2428,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "77b1d100d2682557e14b56517e48596c20da3b40"
+                "reference": "460a82bf352d10daf35f542ec2b8454b620e8225"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/77b1d100d2682557e14b56517e48596c20da3b40",
-                "reference": "77b1d100d2682557e14b56517e48596c20da3b40",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/460a82bf352d10daf35f542ec2b8454b620e8225",
+                "reference": "460a82bf352d10daf35f542ec2b8454b620e8225",
                 "shasum": ""
             },
             "require": {
@@ -2499,7 +2499,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2014-10-01 15:20:38"
+            "time": "2014-10-02 14:27:04"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -2701,12 +2701,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataCoreBundle.git",
-                "reference": "f0b51f8ea9ba82a7bfe971be3c8f102d5baaa2bd"
+                "reference": "b9377dfa7a35759c9fab22403a5cc0989452b025"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/f0b51f8ea9ba82a7bfe971be3c8f102d5baaa2bd",
-                "reference": "f0b51f8ea9ba82a7bfe971be3c8f102d5baaa2bd",
+                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/b9377dfa7a35759c9fab22403a5cc0989452b025",
+                "reference": "b9377dfa7a35759c9fab22403a5cc0989452b025",
                 "shasum": ""
             },
             "require": {
@@ -2755,7 +2755,7 @@
             "keywords": [
                 "sonata"
             ],
-            "time": "2014-09-25 16:55:07"
+            "time": "2014-10-02 13:15:40"
         },
         {
             "name": "sonata-project/datagrid-bundle",
@@ -3746,12 +3746,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "6acf3e74ae5a87a91c29aa6934befe1f83dc5db2"
+                "reference": "d318e09eef441aa2c5b928a63d4e8c0c74355d20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/6acf3e74ae5a87a91c29aa6934befe1f83dc5db2",
-                "reference": "6acf3e74ae5a87a91c29aa6934befe1f83dc5db2",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/d318e09eef441aa2c5b928a63d4e8c0c74355d20",
+                "reference": "d318e09eef441aa2c5b928a63d4e8c0c74355d20",
                 "shasum": ""
             },
             "require": {
@@ -3854,7 +3854,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-10-01 05:53:11"
+            "time": "2014-10-02 10:40:33"
         },
         {
             "name": "twig/extensions",
@@ -4003,16 +4003,16 @@
         },
         {
             "name": "willdurand/negotiation",
-            "version": "1.3.3",
+            "version": "1.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/willdurand/Negotiation.git",
-                "reference": "a98fb6b9808610c1aa326c736893d3d77d9383b6"
+                "reference": "d7fa4ce4a0436915b9ba9f7cb5ff37719f0a834c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/willdurand/Negotiation/zipball/a98fb6b9808610c1aa326c736893d3d77d9383b6",
-                "reference": "a98fb6b9808610c1aa326c736893d3d77d9383b6",
+                "url": "https://api.github.com/repos/willdurand/Negotiation/zipball/d7fa4ce4a0436915b9ba9f7cb5ff37719f0a834c",
+                "reference": "d7fa4ce4a0436915b9ba9f7cb5ff37719f0a834c",
                 "shasum": ""
             },
             "require": {
@@ -4036,8 +4036,7 @@
             "authors": [
                 {
                     "name": "William Durand",
-                    "email": "william.durand1@gmail.com",
-                    "homepage": "http://www.willdurand.fr"
+                    "email": "william.durand1@gmail.com"
                 }
             ],
             "description": "Content Negotiation tools for PHP provided as a standalone library.",
@@ -4049,7 +4048,7 @@
                 "header",
                 "negotiation"
             ],
-            "time": "2014-05-16 12:34:51"
+            "time": "2014-10-02 07:26:00"
         }
     ],
     "packages-dev": [

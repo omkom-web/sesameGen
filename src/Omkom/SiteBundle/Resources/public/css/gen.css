@@ -2,11 +2,11 @@
 #formulaire { position:absolute; }
 #formulaire { top:-25px; }
 #entreprise { margin-top:50px; }
-
-.titre {
-    line-height: 53px;
-}
-
+.overH { overflow:hidden; }
+.titre { line-height: 53px; }
+.panel {position: relative;
+    top: -150px;
+    z-index: 999; right:20px}
 ARTICLE { color:#333 !important; }
 .bgwight { background:white; }
 

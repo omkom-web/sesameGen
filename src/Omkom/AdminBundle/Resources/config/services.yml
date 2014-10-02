@@ -31,6 +31,17 @@ services:
         calls:
             - [ setTranslationDomain, [OmkomSiteBundle]]
             
+    sonata.admin.societe:
+        class: Omkom\AdminBundle\SocieteAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Contenu", label: "Societe" }
+        arguments:
+            - ~
+            - Omkom\SiteBundle\Entity\Societe
+            - ~
+        calls:
+            - [ setTranslationDomain, [OmkomSiteBundle]]
+            
     # gedmo.listener.tree:
         # class: Gedmo\Tree\TreeListener
         # tags:

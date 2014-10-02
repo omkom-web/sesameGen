@@ -19,13 +19,7 @@
 
 {% block aside %}
 <aside class="small-12 medium-3 columns">
-    <div class="panel">
-        <h2>L'entreprise Sesame</h2>
-        <center><img width="50%" src="../img/logo.png" alt="abri stop intempéries"/></center>
-        <br/><p>Dès le commencement, Sésame a choisi de proposer des produits de qualité et un service optimal pour la plus grande satisfaction de ses clients. 19 années d’innovations et d’avancées technologiques...</p>
-        <a href="entreprise.php">En savoir +</a>
-    </div>
-    
+    {{ include( 'OmkomSiteBundle:Widget:bloc_info.html.twig' ) }}
     {{ include( 'OmkomSiteBundle:Widget:bloc_reco.html.twig', { 'recopages': recopages } ) }}
 </aside>
 {% endblock %}
