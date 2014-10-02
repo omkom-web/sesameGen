@@ -75,7 +75,7 @@ class DeployCommand extends ContainerAwareCommand
             system('php composer.phar install 2>&1');
             
             // then sync
-            $this->method = 'sync';
+            $this->method = 'migrate';
         }
         
         if($this->method == 'migrate')

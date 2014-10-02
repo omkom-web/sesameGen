@@ -28,7 +28,11 @@ Créer un super utilisateur
 Le reste du temps
 ========================
 
-Upgrade en cron
+Migration de donnée 
+
+    php app/console omkom:deploy migrate
+    
+Upgrade application en cron
 
     php app/console omkom:deploy upgrade
     
